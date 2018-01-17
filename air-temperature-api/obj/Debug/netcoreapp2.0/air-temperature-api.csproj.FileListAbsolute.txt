@@ -1,0 +1,10 @@
+c:\Projects\air-temperature\air-temperature-api\bin\Debug\netcoreapp2.0\air-temperature-api.deps.json
+c:\Projects\air-temperature\air-temperature-api\bin\Debug\netcoreapp2.0\air-temperature-api.runtimeconfig.json
+c:\Projects\air-temperature\air-temperature-api\bin\Debug\netcoreapp2.0\air-temperature-api.runtimeconfig.dev.json
+c:\Projects\air-temperature\air-temperature-api\bin\Debug\netcoreapp2.0\air-temperature-api.dll
+c:\Projects\air-temperature\air-temperature-api\bin\Debug\netcoreapp2.0\air-temperature-api.pdb
+c:\Projects\air-temperature\air-temperature-api\obj\Debug\netcoreapp2.0\air-temperature-api.csproj.CoreCompileInputs.cache
+c:\Projects\air-temperature\air-temperature-api\obj\Debug\netcoreapp2.0\air-temperature-api.AssemblyInfoInputs.cache
+c:\Projects\air-temperature\air-temperature-api\obj\Debug\netcoreapp2.0\air-temperature-api.AssemblyInfo.cs
+c:\Projects\air-temperature\air-temperature-api\obj\Debug\netcoreapp2.0\air-temperature-api.dll
+c:\Projects\air-temperature\air-temperature-api\obj\Debug\netcoreapp2.0\air-temperature-api.pdb
