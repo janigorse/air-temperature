@@ -17,7 +17,16 @@ namespace air_temperature_api.Controllers
 
             if (_context.TemperatureItems.Count() == 0)
             {
-                _context.TemperatureItems.Add(new TemperatureItem { Location = "London", Date = new DateTime(), Temperature = 10 });
+                _context.TemperatureItems.Add(new TemperatureItem { Location = "London", Date = new DateTime(2018, 1, 1), Temperature = 6 });
+                _context.TemperatureItems.Add(new TemperatureItem { Location = "London", Date = new DateTime(2018, 1, 2), Temperature = 8 });
+                _context.TemperatureItems.Add(new TemperatureItem { Location = "London", Date = new DateTime(2018, 1, 3), Temperature = 4 });
+                _context.TemperatureItems.Add(new TemperatureItem { Location = "New York", Date = new DateTime(2018, 1, 2), Temperature = 1 });
+                _context.TemperatureItems.Add(new TemperatureItem { Location = "New York", Date = new DateTime(2018, 1, 3), Temperature = 3 });
+                _context.TemperatureItems.Add(new TemperatureItem { Location = "Johannesburg", Date = new DateTime(2018, 1, 3), Temperature = 20 });
+                _context.TemperatureItems.Add(new TemperatureItem { Location = "Johannesburg", Date = new DateTime(2018, 1, 4), Temperature = 20 });
+                _context.TemperatureItems.Add(new TemperatureItem { Location = "Johannesburg", Date = new DateTime(2018, 1, 5), Temperature = 22 });
+                _context.TemperatureItems.Add(new TemperatureItem { Location = "Johannesburg", Date = new DateTime(2018, 1, 6), Temperature = 23 });
+                
                 _context.SaveChanges();
             }
         }   

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms'; 
+
 import { Temperature } from '../temperature';
 
 @Component({
@@ -13,6 +15,10 @@ export class TemperatureFormComponent implements OnInit {
   model = new Temperature('', null, 0);
 
   ngOnInit() {
+  }
+
+  add() {
+    
   }
 
 }
