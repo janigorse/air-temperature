@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 namespace air_temperature_api.Models
 {
     public class TemperatureItem
@@ -10,3 +11,5 @@ namespace air_temperature_api.Models
 
     }
 }
+
+    

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ChartModule } from 'angular2-chartjs';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { TemperatureFormComponent } from './temperature-form/temperature-form.component';
@@ -10,7 +11,7 @@ import { PlotComponent } from './plot/plot.component';
 import { FilterComponent } from './filter/filter.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { TemperatureService } from './temperature.service';
-
+import {MessagesService} from './messages.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,10 @@ import { TemperatureService } from './temperature.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ChartModule
+    ChartModule,
+    NgbModule.forRoot()
   ],
-  providers: [TemperatureService],
+  providers: [TemperatureService, MessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

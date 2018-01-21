@@ -1,7 +1,11 @@
 
-<h1>{{title}}</h1>
-<app-temperature-form></app-temperature-form>
-<app-filter></app-filter>
-<app-plot></app-plot>
+
+<div class="container">
+        <h1>{{title}}</h1>
+        <app-temperature-form></app-temperature-form>
+        <app-filter [locations]="locations"></app-filter>
+        <app-plot [chart]="chart"></app-plot>
+</div>
+
 
 

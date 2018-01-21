@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace air_temperature_api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class TemperatureController : Controller
     {
         private readonly TemperatureContext _context;
@@ -22,20 +22,44 @@ namespace air_temperature_api.Controllers
                 _context.TemperatureItems.Add(new TemperatureItem { Location = "London", Date = new DateTime(2018, 1, 3), Temperature = 4 });
                 _context.TemperatureItems.Add(new TemperatureItem { Location = "New York", Date = new DateTime(2018, 1, 2), Temperature = 1 });
                 _context.TemperatureItems.Add(new TemperatureItem { Location = "New York", Date = new DateTime(2018, 1, 3), Temperature = 3 });
-                _context.TemperatureItems.Add(new TemperatureItem { Location = "Johannesburg", Date = new DateTime(2018, 1, 3), Temperature = 20 });
                 _context.TemperatureItems.Add(new TemperatureItem { Location = "Johannesburg", Date = new DateTime(2018, 1, 4), Temperature = 20 });
-                _context.TemperatureItems.Add(new TemperatureItem { Location = "Johannesburg", Date = new DateTime(2018, 1, 5), Temperature = 22 });
+                _context.TemperatureItems.Add(new TemperatureItem { Location = "Johannesburg", Date = new DateTime(2018, 1, 3), Temperature = 20 });
                 _context.TemperatureItems.Add(new TemperatureItem { Location = "Johannesburg", Date = new DateTime(2018, 1, 6), Temperature = 23 });
+                _context.TemperatureItems.Add(new TemperatureItem { Location = "Johannesburg", Date = new DateTime(2018, 1, 5), Temperature = 22 });
+                
                 
                 _context.SaveChanges();
             }
         }   
 
-        [HttpGet]
-        public IEnumerable<TemperatureItem> GetAll()
+        [HttpGet(Name="GetAll")]
+        public IEnumerable<TemperatureGroup> GetAll()
         {
-            return _context.TemperatureItems.ToList();
-        }   
+            var temperatureGroup = _context.TemperatureItems.OrderBy(o => o.Date).GroupBy(g => g.Location).Select(
+                t => new TemperatureGroup() {
+                    Location = t.FirstOrDefault().Location,
+                    TemperatureItems = t.Select(
+                        i => new TemperatureItem() {
+                            Date = i.Date,
+                            Id = i.Id,
+                            Location = i.Location,
+                            Temperature = i.Temperature
+                        }).ToList()
+                }).ToList();
+            return temperatureGroup;
+        } 
+
+        [HttpGet(Name="GetAllByLocation")]
+        public IEnumerable<TemperatureItem> GetAllByLocation(string location)
+        {
+            return _context.TemperatureItems.Where(x => x.Location == location).ToList();
+        }
+
+        [HttpGet(Name="GetLocations")]
+        public IEnumerable<string> GetLocations()
+        {
+            return _context.TemperatureItems.Select(l => l.Location).Distinct().ToList<string>();
+        }
 
         [HttpGet("{id}", Name = "GetTemperature")]
         public IActionResult GetById(long id)
@@ -48,7 +72,7 @@ namespace air_temperature_api.Controllers
             return new ObjectResult(item);
         } 
 
-        [HttpPost]
+        [HttpPost(Name="Create")]
         public IActionResult Create([FromBody] TemperatureItem item)
         {
             if (item == null)
@@ -61,5 +85,5 @@ namespace air_temperature_api.Controllers
 
             return CreatedAtRoute("GetTemperature", new { id = item.Id }, item);
         }
-            }
+    }
 }

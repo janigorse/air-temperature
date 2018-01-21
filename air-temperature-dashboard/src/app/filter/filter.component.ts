@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import {MessagesService} from '../messages.service';
 
 @Component({
   selector: 'app-filter',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private messagesService: MessagesService) { }
+
+  @Input() locations: Array<string>;
 
   ngOnInit() {
+  }
+
+  onSelect(location: string) {
+    this.messagesService.changeLocation(location);
   }
 
 }
