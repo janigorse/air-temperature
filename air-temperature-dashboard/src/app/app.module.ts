@@ -12,6 +12,7 @@ import { FilterComponent } from './filter/filter.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { TemperatureService } from './temperature.service';
 import {MessagesService} from './messages.service';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {MessagesService} from './messages.service';
     TemperatureFormComponent,
     PlotComponent,
     FilterComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

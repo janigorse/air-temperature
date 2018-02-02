@@ -1,19 +1,28 @@
-<div class="row">
-  
-  <form (ngSubmit)="add()" #temperatureForm="ngForm">
-    <div class="form-group">
-      <input type="text" class="form-control" id="location" required [(ngModel)]="model.location" name="location" placeholder="location">
+
+<form (ngSubmit)="add()" #temperatureForm="ngForm">
+  <div class="row">
+    <div class="col">
+        <input type="text" class="form-control" id="location" required [(ngModel)]="model.location" name="location" placeholder="location">
     </div>
-
-    <div class="form-group">
-      <input type="date" class="form-control" id="date" required [(ngModel)]="model.date" name="date" placeholder="date">
+    <div class="col">
+        <!--<input type="date" class="form-control" id="date" required [(ngModel)]="model.date" name="date" placeholder="date">-->
+        <div class="input-group">
+            <input class="form-control"
+                  [(ngModel)]="model.date"
+                   placeholder="yyyy-mm-dd"
+                   name="dp" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+              </button>
+            </div>
+        </div>
     </div>
-
-    <div class="form-group">
-      <input type="number" class="form-control" id="temperature" required [(ngModel)]="model.temperature" name="temperature" placeholder="temperature">
+    <div class="col">
+        <input type="number" class="form-control" id="temperature" required [(ngModel)]="model.temperature" name="temperature" placeholder="temperature">
     </div>
+    <div class="col">
+        <button type="submit" class="btn btn-success" [disabled]="!temperatureForm.form.valid">Submit</button>
+    </div>    
+  </div>
+</form>
 
-    <button type="submit" class="btn btn-success" [disabled]="!temperatureForm.form.valid">Submit</button>
-
-  </form>
-</div>

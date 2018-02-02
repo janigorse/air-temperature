@@ -1,21 +1,16 @@
 
-    <div class="row">
-      <div class="col-sm">
-        <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Locations</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button class="dropdown-item" (click)="onSelect('all')">All</button>
-              <button class="dropdown-item" *ngFor="let location of locations" (click)="onSelect(location)">{{location}}</button>
+    <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
             </div>
-          </div>
-      </div>
-      <div class="col-sm">
-          <input type="date" class="form-control" id="from" required name="from" palceholder="from">
-      </div>
-      <div class="col-sm">
-          <input type="date" class="form-control" id="to" required name="to" palceholder="to">
-      </div>
+            
+            <div ngbDropdown class="dropdown" placement="bottom-right">
+                <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" ngbDropdownToggle>Locations</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+                    <button class="dropdown-item" (click)="onSelect('all')">All</button>
+                    <button class="dropdown-item" *ngFor="let location of locations" (click)="onSelect(location)">{{location}}</button>
+                </div>
+            </div>
     </div>
-  
-
 
