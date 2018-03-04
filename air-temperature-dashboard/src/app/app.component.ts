@@ -121,7 +121,7 @@ export class AppComponent implements OnInit {
   }
   private RenderChart(temperatureDates, locationTemperaturesArray): Chart 
   {
-    return new Chart('canvas', {
+    return {
       type: 'line',
       data: {
         labels: temperatureDates,
@@ -132,7 +132,7 @@ export class AppComponent implements OnInit {
           display: true
         }
       }
-    });
+    };
     
   };
   
